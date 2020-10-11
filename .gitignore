@@ -1,3 +1,4 @@
 *.png
 Playground/.vscode/.ropeproject/config.py
 Playground/.vscode/.ropeproject/objectdb
+BeholderModel/model_final.pth
