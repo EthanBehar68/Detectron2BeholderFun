@@ -45,15 +45,15 @@ if __name__ == "__main__":
     image_file: str
 
     for image_file in args.images:
-        img: np.ndarray = cv2.imread(image_file)
+        img = cv2.imread(image_file)
 
-        output: Instances = predictor(img)["instances"]
+        output = predictor(img)["instances"]
         v = Visualizer(img[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.0)
         
-        result: VisImage = v.draw_instance_predictions(output.to("cpu"))
-        result_image: np.darray = result.get_image()[:, :, ::-1]
+        result: = v.draw_instance_predictions(output.to("cpu"))
+        result_image = result.get_image()[:, :, ::-1]
 
-        out_file_name: str = re.search(r"(.*)\.", image_file).group(0)[:-1]
+        out_file_name = re.search(r"(.*)\.", image_file).group(0)[:-1]
         out_file_name += "_processed.png"
 
         cv2.imwrite(out_file_name, result_image)
